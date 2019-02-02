@@ -1,21 +1,15 @@
-var restify = require('restify');
+const restify = require('restify');
+const ManageImages = require('./api-controller/image');
+const server = restify.createServer();
 
-function getImages(req, res, next) {
-    res.send('[]');
-    next();
-  }
+server.use(restify.plugins.bodyParser({
+    mapParams: true
+}));
 
-  function uploadImage(req, res, next) {
-    res.send('[]');
-    next();
-  }
+ManageImages(server);
 
-var server = restify.createServer();
-server.get('/images', getImages);
-//server.get('/images/:name', getImages);
-
-server.listen(8080, function() {
-  console.log('%s listening at %s', server.name, server.url);
+server.listen(8080, function () {
+    console.log('%s listening at %s', server.name, server.url);
 });
 
 module.exports = server;
