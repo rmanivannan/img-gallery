@@ -1,0 +1,12 @@
+.header nav{
+    float: right;
+}
+.header{
+    overflow: hidden;
+    background: #eee;
+    padding: 5px;
+}
+.header h1{
+    float: left;
+    color: #787878;
+}

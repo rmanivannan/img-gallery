@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "./common/header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import './App.css';
 
 // Pages
 import Gallery from "./pages/gallery/gallery-container"
 import Upload from "./pages/upload/upload-container"
 
 import 'babel-polyfill';
+
+const PageNotFoud = ()=>(<h1>404 Page not found</h1>)
 
 const AppRouter = () => (
   <Router>
