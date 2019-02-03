@@ -25,9 +25,16 @@ class ManageImage{
             next();
         }else{
             const base64Data = base64Val.split(/;base64,/)[1];
-            require("fs").writeFile('./static-images/' + fileName, base64Data, 'base64', function (err) {
-                res.status(201);
-                res.send();
+            require("fs").writeFile('./static-images/' + fileName, base64Data, 'base64',  (err)=> {
+                if(!err){
+                    res.status(201);
+                    res.send();
+                }else{
+                    res.status(500);
+                    res.send({
+                        errorMsg: 'Something went wrong, Please get in touch with techncl team'
+                    });
+                }
                 next();
             });
         }

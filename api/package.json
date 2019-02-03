@@ -24,6 +24,12 @@
     "chai-http": "^4.2.1",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
-    "restify": "^7.7.0"
+    "restify": "^7.7.0",
+    "sse": "0.0.8"
+  },
+  "dependencies": {
+    "http-proxy": "^1.17.0",
+    "http-proxy-middleware": "^0.19.1",
+    "restify-eventsource": "^2.0.0"
   }
 }
