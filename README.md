@@ -10,9 +10,11 @@ Practice App for learning
     FE code will be uder 'ui' folder
 
         - cd ui
+        - npm i
         - npm run start
         - open another terminal
         - cd api
+        - npm i
         - node server.js
         - launch app localhost:3000
 
