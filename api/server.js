@@ -6,9 +6,13 @@ server.use(restify.plugins.bodyParser({
     mapParams: true
 }));
 
-ManageImages(server);
+new ManageImages(server);
 
-server.listen(8080, function () {
+server.get('/api/static-images/*', restify.plugins.serveStatic({
+    directory: __dirname + '/../'
+}));
+
+server.listen(4000, function () {
     console.log('%s listening at %s', server.name, server.url);
 });
 

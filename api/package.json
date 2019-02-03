@@ -4,6 +4,7 @@
   "description": "Practice App for learning",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
     "test": "nyc mocha test/**/**.js",
     "test:watch": "nyc mocha test/**/**.js --watch ./test ./server.js"
   },

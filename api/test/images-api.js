@@ -1,11 +1,10 @@
 'use strict'
 
-let chalet chaiHttp = require('chai-http');
-i = require('chai');
+let chaiHttp = require('chai-http');
+let chai = require('chai');
 let server = require('../server');
-let should = chai.should();
+let should = require('chai').should();
 
-//import {expect} from 'chai'
 chai.use(chaiHttp);
 
 describe('Image Upload App', () => {
@@ -17,20 +16,20 @@ describe('Image Upload App', () => {
     describe('/GET imagses', () => {
         it('it should GET all the images', (done) => {
             chai.request(server)
-                .get('/images')
+                .get('/api/images')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.an('object');
                     res.body.images.should.be.an('array');
                     done();
-                }); 
+                });
         });
     });
 
     describe('/POST imagse', () => {
         it('it should POST image', (done) => {
             chai.request(server)
-                .post('/image')
+                .post('/api/image')
                 .set('content-type', 'application/json')
                 .send({ base64Val: 'test', fileType: 'image/jpg', fileName: 'mm.jpg' })
                 .end((err, res) => {
@@ -40,7 +39,7 @@ describe('Image Upload App', () => {
         });
         it('it should not POST image with psd file format', (done) => {
             chai.request(server)
-                .post('/image')
+                .post('/api/image')
                 .set('content-type', 'application/json')
                 .send({ base64Val: 'test', fileType: 'image/psd', fileName: 'mm.psd' })
                 .end((err, res) => {
