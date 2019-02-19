@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow,configure,mount, render } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 
-import Component from '../common/header';
+import Component from '../common/header/header';
 import configureMockStore from "redux-mock-store";
 
 configure({ adapter: new Adapter() });

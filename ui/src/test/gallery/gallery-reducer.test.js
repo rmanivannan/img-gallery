@@ -22,6 +22,7 @@ describe("Reducer Gallery", () => {
       failureMsg: ''
     });
   });
+  
 
   it("should CONST.GET_IMAGES_FAILURE return right data", () => {
     let state1 = Reducer();

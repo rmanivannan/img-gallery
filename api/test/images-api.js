@@ -48,6 +48,19 @@ describe('Image Upload App', () => {
                     done();
                 });
         });
+
+        it('it should not POST image with long file size file ', (done) => {
+            var str = new Array((1024*1024*10) + 1).join( '.' );
+            //console.log(str);
+            chai.request(server)
+                .post('/api/image')
+                .set('content-type', 'application/json')
+                .send({ base64Val: str, fileType: 'image/psd', fileName: 'mm.psd' })
+                .end((err, res) => {
+                    res.should.have.status(422);
+                    done();
+                });
+        });
     });
 
 });

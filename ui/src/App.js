@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./common/header";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./common/header/header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
 // Pages
@@ -9,15 +9,18 @@ import Upload from "./pages/upload/upload-container"
 
 import 'babel-polyfill';
 
-const PageNotFoud = ()=>(<h1>404 Page not found</h1>)
+const PageNotFound = ()=>(<h1>404 Page not found</h1>)
 
-const AppRouter = () => (
-  <Router>
+const AppRouter = (history) => (
+  <Router >
     <div>
       <Header />
-      <Route path="/" exact component={Gallery} />
-      <Route path="/gallery/" component={Gallery} />
-      <Route path="/upload/" component={Upload} />
+      <Switch>
+        <Route path="/" exact component={Gallery} />
+        <Route path="/gallery/" exact component={Gallery} />
+        <Route path="/upload/" exact component={Upload} />
+        <Route component={PageNotFound} />
+      </Switch>
     </div>
   </Router>
 );
