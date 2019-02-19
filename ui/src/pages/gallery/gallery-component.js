@@ -5,11 +5,15 @@ import './gallery-style.css'
 class Gallery extends PureComponent {
     constructor(props) {
         super(props);
+        this.es = null;
     }
     componentDidMount() {
         this.props.getImage();
-        let es = new EventSource('http://localhost:4000/api/listenChanges');	
-        es.onmessage = this.props.getImage;
+        this.es = new EventSource('http://localhost:4001/api/listenChanges');	
+        this.es.onmessage = this.props.getImage;
+    }
+    componentWillUnmount(){
+        this.es.close();
     }
     render() {
         return <div className="gallery-cnt">

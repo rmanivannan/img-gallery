@@ -3,6 +3,7 @@ const SSE = require('sse');
 const http = require('http');
 
 const sseServer = http.createServer((req, res) => {
+    
     res.writeHead(200, {
         'Content-type': 'text/event-stream',
         'Access-Control-Allow-Origin': 'http://localhost:3000'
@@ -19,6 +20,7 @@ const sseServer = http.createServer((req, res) => {
 });
 
 sseServer.listen(4001, function () {
+    console.log('SSE created at port 3000')
     const sse = new SSE(sseServer);
     sse.on('connection', (client) => {
         client.send('Conected!');
