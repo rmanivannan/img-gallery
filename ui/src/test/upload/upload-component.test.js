@@ -16,7 +16,7 @@ describe("<Header />", () => {
 
     expect(elm.find('h1').text()).toEqual('Uplaod New Image');
     expect(elm.find('p').text()).toEqual('Sample message');
-    expect(elm.find('input').length).toEqual(2);
+    expect(elm.find('input').length).toEqual(3);
   });
 
   it("should render without throwing an error even if no props passed", () => {
