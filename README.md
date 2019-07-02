@@ -26,3 +26,24 @@ Practice App for learning
 ## Run testcases
 
     - UI & API folder > `npm run test`
+
+
+## Image Viewer App - Specification
+
+Build a web application which displays to a user a grid or list of images.
+
+### It should:
+
+·     Allow a user to upload images
+
+·     Allow a user see all uploaded images
+
+·     Allow “User A” to upload an image and “User B” viewing the all images page to see it uploaded i.e., you might consider using a push / polling mechanism
+
+·     Have a backend server written in Node JS
+
+### You can:
+
+·     Use any front-end technology you wish
+
+·     Use any persistence implementation you deem appropriate
