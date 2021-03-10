@@ -17,7 +17,7 @@ class ManageImage{
         const supportedFileExtensions = ['png','jpeg', 'jpg', 'gif'];
         const {fileName, base64Val} = req.body;
         const fileExt = (fileName || '').split('.').pop();
-        if(supportedFileExtensions.indexOf(fileExt) == -1){
+        if(supportedFileExtensions.indexOf(fileExt) === -1){
             res.status(400);
             res.send({
                 errorMsg: `File type "${fileExt}" not supported, supported filetypes are "${supportedFileExtensions.join(', ')}"`
